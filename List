@@ -1,0 +1,73 @@
+/* *********************************************************
+ * KNOWLEDGE CENTER
+ * Detailed Video Explanation: https://youtu.be/je7zlYfJf7Q
+********************************************************** */
+
+#include <iostream>
+#include <list>
+#include <vector>
+
+using namespace std;
+
+void print_list(list<int>& ll){
+    for(list<int>::iterator it = ll.begin(); it != ll.end(); ++it)
+        cout << *it << "\t";
+    cout << endl;
+}
+
+int main() {
+    list<int> nums = {1, 2, 3, 4, 5};
+    print_list(nums);
+    cout << "Size = " << nums.size() << endl;;
+    list<int> nums2 = nums;
+    print_list(nums2);
+    
+    cout << "front = " << nums.front() << ", back = " << nums.back() << endl;
+    cout << std::boolalpha << nums.empty() << endl;
+    
+    cout << *nums.begin() << ", " << *nums.rbegin() << endl;
+    
+    vector<int> vec = {1,2,3,4,5};
+    vec.insert(vec.begin() + 2, 100);
+    cout << vec[2] << endl;
+    
+    print_list(nums);
+    list<int>::iterator it = nums.begin();
+    while(*it != 3 && it != nums.end()) 
+        it++;
+    nums.insert(it, 100);
+    print_list(nums);
+    
+    nums.erase(it);
+    print_list(nums);
+    
+    nums.remove(4);
+    print_list(nums);
+    
+    nums.clear();
+    print_list(nums);
+    cout << std::boolalpha << nums.empty() << endl;
+    
+    print_list(nums2);
+    
+    nums2.push_back(-100);
+    nums2.push_front(-200);
+    print_list(nums2);
+    
+    nums2.pop_back();
+    nums2.pop_front();
+    print_list(nums2);
+    
+    return 0;
+}
+
+/***
+size(), max_size()
+=
+front(), back()
+empty()
+begin(), end(), rbegin(), rend()
+insert(), erase(), remove()
+clear()
+push_back(), push_front(), pop_back(), pop_front()
+*/
